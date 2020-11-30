@@ -1,1 +1,3 @@
-from sqlalchemy import create_engine
+from django.db import models
+
+class Bookmark(models.Model):
