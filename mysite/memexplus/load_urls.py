@@ -3,6 +3,8 @@ import urllib.request
 
 from bs4 import Comment
 
+from mysite.memexplus.models import BasicBookmark
+
 
 def tag_visible(element):
     if element.parent.name in ['style', 'script', 'head', 'title', 'meta', '[document]']:
@@ -27,5 +29,11 @@ for line in file.readlines():
     try:
         html = urllib.request.urlopen(url).read()
         print(text_from_html(html))
+        b = BasicBookmark(
+            full_text=text_from_html(html)
+        )
+
     except:
+        count += 1
+        print(f'failed = {count}')
         pass

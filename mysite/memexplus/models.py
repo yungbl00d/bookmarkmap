@@ -6,4 +6,5 @@ class Bookmark(models.Model):
 
 
 class BasicBookmark(Bookmark):
-    text = models.TextField()
+    full_text = models.TextField()
+    stripped_text = models.TextField()
